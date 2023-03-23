@@ -18,8 +18,30 @@ This is a basic journal module basaed on the Laravel CMS avalable in my [laravel
     php artisan make:migration create_entries_table
     ```
     
+    You will now have a new migration file named `<YEAR>_<MONTH>_<DAY>_<SECONDS>_create_entries_table.php`.
+    
+    
     > **Note** 
     > Laravel uses a database naming convention named [Eloquent](https://laravel.com/docs/10.x/eloquent). Eloquent states that tables names are lowercase and plural.  
+
+3. In the new migration file change the schema to:
+
+    ```php
+    Schema::create('entries', function (Blueprint $table) {
+        $table->id();
+
+        $table->string('title');
+        $table->text('content');
+
+        $table->timestamp('learned_at');
+
+        $table->timestamps();
+    });
+    ```
+    
+## Model
+
+
     
 ***
 
