@@ -1,4 +1,4 @@
-# laravel-blade-cms-journal
+# Journal Module for Laravel CMS
 
 This is a basic journal module basaed on the Laravel CMS avalable in my [laravel-blade-cms](https://github.com/codeadamca/laravel-blade-cms) repo.
 
