@@ -24,7 +24,7 @@ This is a basic journal module basaed on the Laravel CMS avalable in my [laravel
     > **Note** 
     > Laravel uses a database naming convention named [Eloquent](https://laravel.com/docs/10.x/eloquent). Eloquent states that tables names are lowercase and plural.  
 
-3. In the new migration file change the schema to:
+3. In the new migration file, change the schema to:
 
     ```php
     Schema::create('entries', function (Blueprint $table) {
