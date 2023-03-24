@@ -4,15 +4,15 @@ This is a basic journal module basaed on the Laravel CMS avalable in my [laravel
 
 ## Migrations
 
-1. Using the Terminal, change the working directory to your project directory. I am using a Mac and my project folder was on my desktop:
+Before we make any files, use the Terminal to change the working directory to your project directory. I am using a Mac and my project folder was on my desktop:
 
-    ``` sh
-    cd ~
-    cd Desktop
-    cd laravel-blade-cms
-    ```
+``` sh
+cd ~
+cd Desktop
+cd laravel-blade-cms
+```
 
-2. Using the Laravel Artisan tool, create a new migration file:
+1. Using the Laravel Artisan tool, create a new migration file:
 
     ```sh
     php artisan make:migration create_entries_table
@@ -24,7 +24,7 @@ This is a basic journal module basaed on the Laravel CMS avalable in my [laravel
     > **Note** 
     > Laravel uses a database naming convention named [Eloquent](https://laravel.com/docs/10.x/eloquent). Eloquent states that tables names are lowercase and plural.  
 
-3. In the new migration file, change the schema to:
+2. In the new migration file, change the schema to:
 
     ```php
     Schema::create('entries', function (Blueprint $table) {
@@ -41,7 +41,7 @@ This is a basic journal module basaed on the Laravel CMS avalable in my [laravel
     
 ## Model
 
-We need a new model to define the `entries` table relationships, etc... The model scaffolding that Artisan provides is sufficient, no changes needed.
+We need a new model to define the `entries` table relationships and rules. The model scaffolding that Artisan provides is sufficient.
 
 1. Create a new `Entry` model: 
 
@@ -49,9 +49,11 @@ We need a new model to define the `entries` table relationships, etc... The mode
     php srtisan make:model Endry
     ```
     
+ 2. You will now have a filed named `Entry.php` in the `/app/Models` folder. No changes needed.
+    
 ## Factory
 
-We need an `Entry` factory to give Laravel instrcutions on how to populate the factory table. 
+We need a factory to give Laravel instructions on how to populate the factory table. 
 
 1. Creat a new factory:
 
@@ -59,7 +61,7 @@ We need an `Entry` factory to give Laravel instrcutions on how to populate the f
     php artisan make:factory EntryFactory
     ```
     
-2. You will now have a filed named `EntryFactory.php` in the `/database/factories` folder. Open thhis faile and change the definiation method retrn value to:
+2. You will now have a filed named `EntryFactory.php` in the `/database/factories` folder. Open this faile and change the definiation method retrn value to:
 
     ```php
     return [
@@ -71,7 +73,30 @@ We need an `Entry` factory to give Laravel instrcutions on how to populate the f
     
 ## Seeding
 
+Lastly we need to give Laravel instructions on how many entries to add. 
 
+1. Open up the `DatabaseSeeder.php` file in the `/database/seeders` folder.
+
+2. At the top of the file add the entries model, add this line below `use App\ModelProject;`:
+
+    ```php
+    use App\Models\Entry;
+    ```
+    
+3. Add some code to remove existing records when seeding it initiated. Add this below `Project::truncate();`:
+
+    ```php
+    Entry::truncate();
+    ```
+    
+4. And lasstly, add code to add four fake entries. Add this line under `Project::factory()->count(4)->create();`:
+
+    ```php
+    Entry::factory()->count(4)->create();
+    ```
+    
+ ## Execute
+    
 
 
     
