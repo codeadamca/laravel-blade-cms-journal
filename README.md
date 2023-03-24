@@ -89,7 +89,7 @@ Lastly we need to give Laravel instructions on how many entries to add.
     Entry::truncate();
     ```
     
-4. And lasstly, add code to add four fake entries. Add this line under `Project::factory()->count(4)->create();`:
+4. Add code to add four fake entries. Add this line under `Project::factory()->count(4)->create();`:
 
     ```php
     Entry::factory()->count(4)->create();
@@ -97,9 +97,18 @@ Lastly we need to give Laravel instructions on how many entries to add.
     
  ## Execute
     
+Lastly we need to execute our migrations and seeding. Using the Terminal (or GitBash on a Windows machine) run this comment:
+
+```sh
+php artisan migrate:fresh --seed
+```
 
 
-    
+
+If you received no errors, there will be tables with data in your database. OPen up phpMyAdmin to check!
+
+
+   
 ***
 
 ## Repository Resources
