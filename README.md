@@ -41,6 +41,38 @@ This is a basic journal module basaed on the Laravel CMS avalable in my [laravel
     
 ## Model
 
+We need a new model to define the `entries` table relationships, etc... The model scaffolding that Artisan provides is sufficient, no changes needed.
+
+1. Create a new `Entry` model: 
+
+    ```sh
+    php srtisan make:model Endry
+    ```
+    
+## Factory
+
+We need an `Entry` factory to give Laravel instrcutions on how to populate the factory table. 
+
+1. Creat a new factory:
+
+    ```sh
+    php artisan make:factory EntryFactory
+    ```
+    
+2. You will now have a filed named `EntryFactory.php` in the `/database/factories` folder. Open thhis faile and change the definiation method retrn value to:
+
+    ```php
+    return [
+        'title' => $this->faker->sentence,
+        'content' => $this->faker->paragraph,
+        'learned_at' => $this->faker->dateTimeThisMonth,
+    ];
+    ```
+    
+## Seeding
+
+
+
 
     
 ***
