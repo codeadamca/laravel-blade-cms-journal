@@ -2,7 +2,11 @@
 
 This is a basic journal module basaed on the Laravel CMS avalable in my [laravel-blade-cms](https://github.com/codeadamca/laravel-blade-cms) repo.
 
-## Migrations
+## Database
+
+Before we start coding the list, add, edit, and delete files, we need a table to store our journal entries. Creating a table with testing data requires us to create a migration, model, factory, and add some instructions to our seeding script. 
+
+### Migrations
 
 Before we make any files, use the Terminal to change the working directory to your project directory. I am using a Mac and my project folder was on my desktop:
 
@@ -39,7 +43,7 @@ cd laravel-blade-cms
     });
     ```
     
-## Model
+$## Model
 
 We need a new model to define the `entries` table relationships and rules. The model scaffolding that Artisan provides is sufficient.
 
@@ -51,7 +55,7 @@ We need a new model to define the `entries` table relationships and rules. The m
     
 2. You will now have a filed named `Entry.php` in the `/app/Models` folder. No changes needed.
     
-## Factory
+### Factory
 
 We need a factory to give Laravel instructions on how to populate the factory table. 
 
@@ -71,7 +75,7 @@ We need a factory to give Laravel instructions on how to populate the factory ta
     ];
     ```
     
-## Seeding
+### Seeding
 
 Lastly we need to give Laravel instructions on how many entries to add. 
 
@@ -95,7 +99,7 @@ Lastly we need to give Laravel instructions on how many entries to add.
     Entry::factory()->count(4)->create();
     ```
     
-## Execute
+### Execute
     
 Lastly we need to execute our migrations and seeding. Using the Terminal (or GitBash on a Windows machine) run this comment:
 
@@ -108,6 +112,8 @@ php artisan migrate:fresh --seed
 If you received no errors, there will be tables with data in your database. OPen up phpMyAdmin to check!
 
 ![Entries Table](https://raw.githubusercontent.com/codeadamca/laravel-blade-cms-journal/main/_readme/screenshot-entries.png)
+
+
    
 ***
 
