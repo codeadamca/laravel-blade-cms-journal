@@ -113,6 +113,28 @@ If you received no errors, there will be tables with data in your database. OPen
 
 ![Entries Table](https://raw.githubusercontent.com/codeadamca/laravel-blade-cms-journal/main/_readme/screenshot-entries.png)
 
+## List, Add, Edit and Delete
+
+Now that the database is ready and poulated, we need to create the list, add, edit, and delete code. Let's start by adding the list.
+
+### Dashboard
+
+Open up `dashboard.blade.php` in the `resources/views/console/` folder, and add link to manage entries. Add this line after types.
+
+```php
+<li><a href="/console/entries/list">Manage Journal Entries</a></li>
+```
+
+Open a browser, login to the CMS, and click `Manage Journal Entries`. Youl should get a page not found. We need to add some new routes.
+
+SCREENSHOT PAGE NOT FOUND
+
+### Routes
+
+Open the `wewb.php` file in the routers folder. Copy and past the routs for one of the other modules.
+
+```php
+```
 
    
 ***
