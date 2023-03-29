@@ -46,10 +46,10 @@ We need a new model to define the `entries` table relationships and rules. The m
 1. Create a new `Entry` model: 
 
     ```sh
-    php srtisan make:model Endry
+    php artisan make:model Endry
     ```
     
- 2. You will now have a filed named `Entry.php` in the `/app/Models` folder. No changes needed.
+2. You will now have a filed named `Entry.php` in the `/app/Models` folder. No changes needed.
     
 ## Factory
 
@@ -95,7 +95,7 @@ Lastly we need to give Laravel instructions on how many entries to add.
     Entry::factory()->count(4)->create();
     ```
     
- ## Execute
+## Execute
     
 Lastly we need to execute our migrations and seeding. Using the Terminal (or GitBash on a Windows machine) run this comment:
 
