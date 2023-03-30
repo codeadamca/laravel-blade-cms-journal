@@ -107,11 +107,11 @@ Lastly we need to execute our migrations and seeding. Using the Terminal (or Git
 php artisan migrate:fresh --seed
 ```
 
-![Migrate and Seed](https://raw.githubusercontent.com/codeadamca/laravel-blade-cms-journal/main/_readme/screenshot-migrate-seed.png)
+![Migrate and Seed](_readme/screenshot-migrate-seed.png)
 
 If you received no errors, there will be tables with data in your database. OPen up phpMyAdmin to check!
 
-![Entries Table](https://raw.githubusercontent.com/codeadamca/laravel-blade-cms-journal/main/_readme/screenshot-entries.png)
+![Entries Table](_readme/screenshot-entries.png)
 
 ## List
 
@@ -229,7 +229,7 @@ With this.
 
 Refresh your browser.
 
-SCREENSHOT.
+![Completed](_readme/screenshot-complete.png)
 
 ## Add, Edit and Delete
 
