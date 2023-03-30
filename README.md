@@ -125,17 +125,29 @@ Open up `dashboard.blade.php` in the `resources/views/console/` folder, and add 
 <li><a href="/console/entries/list">Manage Journal Entries</a></li>
 ```
 
-Open a browser, login to the CMS, and click `Manage Journal Entries`. Youl should get a page not found. We need to add some new routes.
+Open a browser, login to the CMS, and click `Manage Journal Entries`. You should get a `page not found` error. We need to add some new routes.
 
 SCREENSHOT PAGE NOT FOUND
 
 ### Routes
 
-Open the `wewb.php` file in the routes folder. Copy and paste one of the list routes from one of the other modules and update for `entries`.
+Open the `web.php` file in the routes folder. Import the `EntriesController` by adding a `use` command to the top of your file.
+
+```php
+use App\Http\Controllers\EntriesController;
+```
+
+Copy and paste one of the list routes from one of the other modules and update for `entries`.
 
 ```php
 Route::get('/console/entries/list', [EntriesController::class, 'list'])->middleware('auth');
 ```
+
+Refresh your browser, and you will get a new error message that states `EntriesController does not exist`.
+
+SCREENSHOT CONT DOES NOT EXIST
+
+### Controller
 
 
 
