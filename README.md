@@ -113,7 +113,7 @@ If you received no errors, there will be tables with data in your database. OPen
 
 ![Entries Table](https://raw.githubusercontent.com/codeadamca/laravel-blade-cms-journal/main/_readme/screenshot-entries.png)
 
-## List, Add, Edit and Delete
+## List
 
 Now that the database is ready and poulated, we need to create the list, add, edit, and delete code. Let's start by adding the list.
 
@@ -143,14 +143,97 @@ Copy and paste one of the list routes from one of the other modules and update f
 Route::get('/console/entries/list', [EntriesController::class, 'list'])->middleware('auth');
 ```
 
-Refresh your browser, and you will get a new error message that states `EntriesController does not exist`.
+Refresh your browser, and you will get a new error message that states `Controller EntriesController does not exist`.
 
 SCREENSHOT CONT DOES NOT EXIST
 
-### Controller
+### Controller and MEthod
 
+Use the Laravel Artisan tool to make a new controller.
 
+```sh
+php artisan make:controller EntriesController
+```
 
+Refresh the browser and you will get a new error that states `Method EntriesController::list does not exist`.
+
+SCREENSHOT NO METHOD
+
+Open up the new `EntriesCopntroller.php` file. Add a `use` comment too import the Entry model.
+
+```php
+use App\Models\Entry;
+```
+
+Add a list method. This can be copied from one of the other modules and then adjusted for entries.
+
+```php
+public function list()
+{
+    return view('entries.list', [
+        'entries' => Entry::all()
+    ]);
+}
+```
+
+Refresh the browser and you will get a new error that states `View [entries.list] not found.`.
+   
+### Views
+
+Lastly we need to create a view. In the `resources/views/` folder, create a new folder named `entries` and copy the `list.blade.php` file from one of the other modules, and adjust for entries.
+
+```php
+@extends ('layout.console')
+
+@section ('content')
+
+<section class="w3-padding">
+
+    <h2>Manage Journal Entries</h2>
+
+    <table class="w3-table w3-stripped w3-bordered w3-margin-bottom">
+        <tr class="w3-red">
+            <th>Title</th>
+            <th>Date</th>
+            <th></th>
+            <th></th>
+        </tr>
+        @foreach ($entries as $entry)
+            <tr>
+                <td>{{$entry->title}}</td>
+                <td>$entry->learned_at}}</td>
+                <td><a href="/console/entries/edit/{{$entry->id}}">Edit</a></td>
+                <td><a href="/console/entries/delete/{{$entry->id}}">Delete</a></td>
+            </tr>
+        @endforeach
+    </table>
+
+    <a href="/console/entries/add" class="w3-button w3-green">New Journal Entry</a>
+
+</section>
+
+@endsection
+```
+
+Final we can use the Carbon class to format the date. Switch the line that outputs the date.
+
+```php
+<td>{{$entry->learned_at}}</td>
+```
+
+With this.
+
+```php
+<td>{{\Carbon\Carbon::parse($entry->learned_at)->format('d/m/Y h:i A')}}</td>
+```
+
+Refresh your browser.
+
+SCREENSHOT.
+
+## Add, Edit and Delete
+
+Using the projects module as a guide, create the add, edit, and delete pages for the entries module.
    
 ***
 
