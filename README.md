@@ -43,7 +43,7 @@ cd laravel-blade-cms
     });
     ```
     
-$## Model
+### Model
 
 We need a new model to define the `entries` table relationships and rules. The model scaffolding that Artisan provides is sufficient.
 
@@ -131,10 +131,13 @@ SCREENSHOT PAGE NOT FOUND
 
 ### Routes
 
-Open the `wewb.php` file in the routers folder. Copy and past the routs for one of the other modules.
+Open the `wewb.php` file in the routes folder. Copy and paste one of the list routes from one of the other modules and update for `entries`.
 
 ```php
+Route::get('/console/entries/list', [EntriesController::class, 'list'])->middleware('auth');
 ```
+
+
 
    
 ***
