@@ -127,7 +127,7 @@ Open up `dashboard.blade.php` in the `resources/views/console/` folder, and add 
 
 Open a browser, login to the CMS, and click `Manage Journal Entries`. You should get a `page not found` error. We need to add some new routes.
 
-SCREENSHOT PAGE NOT FOUND
+![Entries Table](_readme/screenshot-404.png)
 
 ### Routes
 
@@ -145,7 +145,7 @@ Route::get('/console/entries/list', [EntriesController::class, 'list'])->middlew
 
 Refresh your browser, and you will get a new error message that states `Controller EntriesController does not exist`.
 
-SCREENSHOT CONT DOES NOT EXIST
+![Entries Table](_readme/screenshot-controller.png)
 
 ### Controller and MEthod
 
@@ -157,7 +157,7 @@ php artisan make:controller EntriesController
 
 Refresh the browser and you will get a new error that states `Method EntriesController::list does not exist`.
 
-SCREENSHOT NO METHOD
+![Entries Table](_readme/screenshot-method.png)
 
 Open up the new `EntriesCopntroller.php` file. Add a `use` comment too import the Entry model.
 
@@ -177,6 +177,8 @@ public function list()
 ```
 
 Refresh the browser and you will get a new error that states `View [entries.list] not found.`.
+
+![Entries Table](_readme/screenshot-view.png)
    
 ### Views
 
