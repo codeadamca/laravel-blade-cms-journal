@@ -50,7 +50,7 @@ We need a new model to define the `entries` table relationships and rules. The m
 1. Create a new `Entry` model: 
 
     ```sh
-    php artisan make:model Endry
+    php artisan make:model Entry
     ```
     
 2. You will now have a filed named `Entry.php` in the `/app/Models` folder. No changes needed.
