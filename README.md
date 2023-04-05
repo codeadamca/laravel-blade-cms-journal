@@ -239,7 +239,7 @@ Using the projects module as a guide, create the add, edit, and delete pages for
    
 ***
 
-## Repository Resources
+## Repo Resources
 
 * [laravel-blade-cms](https://github.com/codeadamca/laravel-blade-cms)
 * [Laravel](https://laravel.com/)
