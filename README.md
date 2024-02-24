@@ -24,9 +24,8 @@ cd laravel-blade-cms
     
     You will now have a new migration file named `<YEAR>_<MONTH>_<DAY>_<SECONDS>_create_entries_table.php`.
     
-    
-    > **Note** 
-    > Laravel uses a database naming convention named [Eloquent](https://laravel.com/docs/10.x/eloquent). Eloquent states that tables names are lowercase and plural.  
+> [!Note]   
+> Laravel uses a database naming convention named [Eloquent](https://laravel.com/docs/10.x/eloquent). Eloquent states that tables names are lowercase and plural.  
 
 2. In the new migration file, change the schema to:
 
